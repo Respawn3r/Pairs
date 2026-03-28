@@ -29,7 +29,7 @@ public class Field extends Group {
 		cards = new Card[size];
 		
 		for (int i = 0; i < fruits.length; i++) {
-			fruits[i] = new Banana();
+			fruits[i] = Fruit.create();
 			cards[2 * i] = new Card(this.match, fruits[i]);
 			cards[2 * i + 1] = new Card(this.match, fruits[i]);
 		}

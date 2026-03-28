@@ -1,6 +1,7 @@
 package shapes;
 
 import fruits.Fruit;
+import javafx.scene.image.Image;
 import javafx.scene.paint.PhongMaterial;
 import javafx.scene.shape.MeshView;
 import javafx.scene.shape.TriangleMesh;
@@ -64,8 +65,13 @@ public class CardFace extends MeshView {
 		
 		super.setMesh(mesh);
 		
-		PhongMaterial mat = (fruit == null) ? 
-				new PhongMaterial() : fruit.getDepiction();
+		PhongMaterial mat = new PhongMaterial();
+		if (fruit == null) {
+			Image backface = new Image("/textures/backface.png");
+			mat.setDiffuseMap(backface);
+		} else {
+			mat = fruit.getDepiction();
+		}
 		
 		super.setMaterial(mat);
 
