@@ -64,7 +64,8 @@ public class CardFace extends MeshView {
 		
 		super.setMesh(mesh);
 		
-		PhongMaterial mat = fruit.getDepiction();
+		PhongMaterial mat = (fruit == null) ? 
+				new PhongMaterial() : fruit.getDepiction();
 		
 		super.setMaterial(mat);
 
