@@ -2,61 +2,46 @@ package game;
 
 import fruits.Fruit;
 import javafx.animation.PauseTransition;
-import javafx.scene.Group;
-import javafx.scene.PerspectiveCamera;
-import javafx.scene.Scene;
-import javafx.scene.SceneAntialiasing;
-import javafx.scene.paint.Color;
 import javafx.scene.transform.Rotate;
 import javafx.util.Duration;
 
-public class Match {
+public class Match extends Foreground {
 	
-	private static final double CAM_DISTANCE = 30.0;
-	private static final double CAM_ANGLE = 5.0;
-	private static final double CAM_ANGLE_ADJUSTMENT = 1.5;
+	private static final double FIELD_DISTANCE = 30.0;
+	private static final double FIELD_TILT = 0.0; 
+	// BUG!!! When u tilt, the animation (applied to child) moves all other children.
+	// Copilot said it has to do with recalculated pivot point.
+	// Try wrapping the animation group in another parent. Apply tilt to wrapper only.
 	private static final int DEFAULT_FIELD_WIDTH = 6;
 	private static final int DEFAULT_FIELD_HEIGHT = 4;
 	private static final double WAIT_BEFORE_FACE_DOWN = 1.5;
-	private static final Color BACKGROUND_COLOR = Color.LAWNGREEN;
 	
 	
 	private Player firstPlayer;
 	private Player secondPlayer;
 	private Player turnHolder;
-	private Field field;	
-	private Scene scene;
-	private PerspectiveCamera cam;
+	private Field field;
 	private boolean locked;
 	
 	
-	public Match() {
+	public Match(Game game) {
+		
+		super(game);
 		
 		this.firstPlayer = new Player();
 		this.secondPlayer = new Player();
 		this.turnHolder = firstPlayer;
-		this.field = new Field(this, DEFAULT_FIELD_WIDTH, DEFAULT_FIELD_HEIGHT);
 		this.locked = false;
 		
-		cam = new PerspectiveCamera(true);
-		cam.setTranslateZ(-CAM_DISTANCE);
-		cam.setTranslateY(-CAM_ANGLE_ADJUSTMENT);
-		cam.setRotationAxis(Rotate.X_AXIS);
-		cam.setRotate(-CAM_ANGLE);
-		
-		this.scene = new Scene(new Group(field, cam), 0, 0, 
-				true, SceneAntialiasing.BALANCED);
-		this.scene.setFill(BACKGROUND_COLOR);
-		this.scene.setCamera(cam);
-				
-	}
-	
-	public Scene getScene() {
-		
-		return this.scene;
+		this.field = new Field(this, DEFAULT_FIELD_WIDTH, DEFAULT_FIELD_HEIGHT);
+		this.getChildren().add(field);
+		this.field.setTranslateZ(FIELD_DISTANCE);
+		this.field.setRotationAxis(Rotate.X_AXIS);
+		this.field.setRotate(FIELD_TILT);
 		
 	}
 
+	
 	public void reportClick(Card card) {
 		
 		if (locked) return;
@@ -96,6 +81,12 @@ public class Match {
 			}
 		}
 		
+	}
+
+	@Override
+	public void play() {
+		
+		return;
 	}
 	
 	
