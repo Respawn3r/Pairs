@@ -2,6 +2,7 @@ package game;
 
 import fruits.Fruit;
 import javafx.animation.PauseTransition;
+import javafx.scene.paint.Color;
 import javafx.scene.transform.Rotate;
 import javafx.util.Duration;
 
@@ -28,8 +29,8 @@ public class Match extends Foreground {
 		
 		super(game);
 		
-		this.firstPlayer = new Player();
-		this.secondPlayer = new Player();
+		this.firstPlayer = new Player(Color.BLUE);
+		this.secondPlayer = new Player(Color.ORANGE);
 		this.turnHolder = firstPlayer;
 		this.locked = false;
 		
@@ -72,12 +73,16 @@ public class Match extends Foreground {
 				pause.play();
 				
 			} else {
-				// make card face up happily
-				// pause
-				// assign both cards of selection to turn holder
-				// check for win condition
-				// reset selection
-				// unlock
+				card.faceUpHappy();
+				PauseTransition pause = new PauseTransition(
+						Duration.seconds(WAIT_BEFORE_FACE_DOWN));
+				pause.setOnFinished(_ -> {
+					turnHolder.getSelection().assign(turnHolder);
+					// check for win condition
+					turnHolder.getSelection().reset();
+					locked = false;
+				});
+				pause.play();
 			}
 		}
 		

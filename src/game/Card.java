@@ -8,6 +8,7 @@ import javafx.animation.TranslateTransition;
 import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.PhongMaterial;
 import javafx.scene.transform.Rotate;
 import javafx.util.Duration;
 import shapes.CardEdge;
@@ -21,6 +22,9 @@ public class Card extends Group {
 	private static final double FACE_UP_DURATION = .5;
 	private static final double FACE_DOWN_DURATION = 1.0;
 	private static final double TURN_HEIGHT = 3.0;
+	private static final double HAPPY_TURN_HEIGHT = 5.0;
+	private static final int HAPPY_REVS = 1;
+	private static final double HAPPY_FACE_UP_DURATION = 1.5;
 	
 
 	private Match match;	
@@ -30,6 +34,7 @@ public class Card extends Group {
 	private CardFace backFace;
 	private CardEdge cardEdge;
 	private ParallelTransition faceUpTransition;
+	private ParallelTransition faceUpHappyTransition;
 	private ParallelTransition faceDownTransition;
 	
 
@@ -68,35 +73,50 @@ public class Card extends Group {
 			
 		});
 		
-		TranslateTransition upT1 = new TranslateTransition(
+		TranslateTransition uT1 = new TranslateTransition(
 				Duration.seconds(FACE_UP_DURATION / 2), this);
-		upT1.setToZ(-TURN_HEIGHT);
-		TranslateTransition upT2 = new TranslateTransition(
+		uT1.setToZ(-TURN_HEIGHT);
+		TranslateTransition uT2 = new TranslateTransition(
 				Duration.seconds(FACE_UP_DURATION / 2), this);
-		upT2.setToZ(0);
-		SequentialTransition upSQ = new SequentialTransition(
-				this, upT1, upT2);
-		RotateTransition upRT = new RotateTransition(
+		uT2.setToZ(0);
+		SequentialTransition uT = new SequentialTransition(
+				this, uT1, uT2);
+		RotateTransition uR = new RotateTransition(
 				Duration.seconds(FACE_UP_DURATION), this);
-		upRT.setAxis(Rotate.X_AXIS);
-		upRT.setToAngle(0.0);
-		this.faceUpTransition = new ParallelTransition(this, upSQ, upRT);
+		uR.setAxis(Rotate.X_AXIS);
+		uR.setToAngle(0.0);
+		this.faceUpTransition = new ParallelTransition(this, uT, uR);
 		
-		TranslateTransition downT1 = new TranslateTransition(
+		TranslateTransition hT1 = new TranslateTransition(
+				Duration.seconds(HAPPY_FACE_UP_DURATION / 2), this);
+		hT1.setToZ(-HAPPY_TURN_HEIGHT);
+		TranslateTransition hT2 = new TranslateTransition(
+				Duration.seconds(HAPPY_FACE_UP_DURATION / 2), this);
+		hT2.setToZ(0);
+		SequentialTransition hT = new SequentialTransition(
+				this, hT1, hT2);
+		RotateTransition hR = new RotateTransition(
+				Duration.seconds(HAPPY_FACE_UP_DURATION / 2), this);
+		hR.setAxis(Rotate.X_AXIS);
+		hR.setToAngle(HAPPY_REVS * -360.0);
+		this.faceUpHappyTransition = new ParallelTransition(this, hT, hR);
+		
+		TranslateTransition dT1 = new TranslateTransition(
 				Duration.seconds(FACE_DOWN_DURATION / 2), this);
-		downT1.setToZ(-TURN_HEIGHT);
-		TranslateTransition downT2 = new TranslateTransition(
+		dT1.setToZ(-TURN_HEIGHT);
+		TranslateTransition dT2 = new TranslateTransition(
 				Duration.seconds(FACE_DOWN_DURATION / 2), this);
-		downT2.setToZ(0);
-		SequentialTransition downSQ = new SequentialTransition(
-				this, downT1, downT2);
-		RotateTransition downRT = new RotateTransition(
+		dT2.setToZ(0);
+		SequentialTransition dT = new SequentialTransition(
+				this, dT1, dT2);
+		RotateTransition dR = new RotateTransition(
 				Duration.seconds(FACE_DOWN_DURATION), this);
-		downRT.setAxis(Rotate.X_AXIS);
-		downRT.setToAngle(180.0);
-		this.faceDownTransition = new ParallelTransition(this, downSQ, downRT);
+		dR.setAxis(Rotate.X_AXIS);
+		dR.setToAngle(180.0);
+		this.faceDownTransition = new ParallelTransition(this, dT, dR);
 		
 	}
+	
 	
 	public void faceUp() {
 		faceUpTransition.play();
@@ -104,17 +124,27 @@ public class Card extends Group {
 		return;
 	}
 	
+	
 	public void faceUpHappy() {
-		//TODO create according transition in constructor
-		faceUp();
+		faceUpHappyTransition.play();
+		facingUp = true;
 		return;
 	}
 
+	
 	public void faceDown() {
 		faceDownTransition.play();
 		facingUp = false;
 		return;
 	}
+
+
+	public void assign(Player player) {
+		// TODO: replace this with the zig-zag frame thing.
+		this.frontFace.setMaterial(new PhongMaterial(player.getColor()));
+		return;
+	}
+	
 	
 	public Fruit getFruit() {
 		return this.fruit;

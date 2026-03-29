@@ -12,8 +12,8 @@ public class Game extends Application {
 	private static final String TITLE = "Pairs";
 	private static final double LEFT_SPACING = .05;
 	private static final double UPPER_SPACING = .05;
-	private static final double RIGHT_SPACING = .5;
-	private static final double BOTTOM_SPACING = .5;
+	private static final double RIGHT_SPACING = .3;
+	private static final double BOTTOM_SPACING = .3;
 	
 	private enum Phase {
 		TITLE, MATCH, WIN

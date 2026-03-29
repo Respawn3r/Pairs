@@ -8,6 +8,8 @@
 A-0	Normal Maps / Bump Maps				A-1		++
 A-1	Visual Concept for the whole game		/		+++
 ~~A-2	Prototype Assets				/		++++~~
+A-3	Adjust Animations				/		++
+A-4	Prototype Cursor Assets				/		++++
 
 
 
@@ -16,8 +18,9 @@ A-1	Visual Concept for the whole game		/		+++
 
 
 P-0	Win Condition					/		+++++
-P-1	Check Pair					/		+++++
-~~P-2	Scene Changes					D-0		+++++~~
+~~P-1	Check Pair					/		+++++
+P-2	Scene Changes					D-0		+++++~~
+P-3	Cursor Logic					A-4		++++
 
 
 

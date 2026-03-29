@@ -24,12 +24,18 @@ public class Selection {
 	}
 
 	public Fruit evaluate() {
-		return null;
+		return first.getFruit().equals(second.getFruit()) ? 
+				first.getFruit() : null;
 	}
 	
 	public void faceDown() {
 		first.faceDown();
 		second.faceDown();
+	}
+	
+	public void assign(Player player) {
+		first.assign(player);
+		second.assign(player);
 	}
 
 	public void reset() {
