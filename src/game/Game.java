@@ -16,7 +16,7 @@ public class Game extends Application {
 	private static final double BOTTOM_SPACING = .3;
 	
 	private enum Phase {
-		TITLE, MATCH, WIN
+		TITLE, MATCH
 	};
 	
 	private Stage stage;
@@ -73,10 +73,6 @@ public class Game extends Application {
 			this.phase = Phase.MATCH;
 			break;
 		case MATCH:
-			this.replaceForeground(new WinScreen(this));
-			this.phase = Phase.WIN;
-			break;
-		case WIN:
 			this.replaceForeground(new Match(this));
 			this.phase = Phase.MATCH;
 			break;

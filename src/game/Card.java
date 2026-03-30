@@ -36,6 +36,7 @@ public class Card extends Group {
 	private ParallelTransition faceUpTransition;
 	private ParallelTransition faceUpHappyTransition;
 	private ParallelTransition faceDownTransition;
+	private Player assignment;
 	
 
 	
@@ -141,6 +142,7 @@ public class Card extends Group {
 
 	public void assign(Player player) {
 		// TODO: replace this with the zig-zag frame thing.
+		this.assignment = player;
 		this.frontFace.setMaterial(new PhongMaterial(player.getColor()));
 		return;
 	}
@@ -148,5 +150,15 @@ public class Card extends Group {
 	
 	public Fruit getFruit() {
 		return this.fruit;
+	}
+
+
+	public boolean isFacingUp() {
+		return this.facingUp;
+	}
+
+
+	public Player getAssignment() {
+		return this.assignment;
 	}
 }

@@ -17,9 +17,9 @@ A-4	Prototype Cursor Assets				/		++++
 
 
 
-P-0	Win Condition					/		+++++
-~~P-1	Check Pair					/		+++++
-P-2	Scene Changes					D-0		+++++~~
+~~P-0	Win Condition					/		+++++~~
+~~P-1	Check Pair					/		+++++~~
+~~P-2	Scene Changes					D-0		+++++~~
 P-3	Cursor Logic					A-4		++++
 
 

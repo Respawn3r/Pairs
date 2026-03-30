@@ -1,7 +1,10 @@
 package game;
 
 import fruits.*;
+import javafx.animation.Animation;
+import javafx.animation.PauseTransition;
 import javafx.scene.Group;
+import javafx.util.Duration;
 
 public class Field extends Group {
 	
@@ -84,6 +87,38 @@ public class Field extends Group {
 	private double zOffset() {
 		double totalRealHeight = height * Card.LONG_SIDE + (height - 1) * GAP;
 		return totalRealHeight / 2;
+	}
+
+	public boolean isAllFaceUp() {
+		for (int i = 0; i < cards.length; i++) {
+			if (!cards[i].isFacingUp()) return false;
+		}
+		return true;
+	}
+
+	public boolean isWinner(Player turnHolder) {
+		int turnHolderCount = 0;
+		int otherCount = 0;
+		
+		for (int i = 0; i < cards.length; i++) {
+			if (cards[i].getAssignment() == turnHolder) {
+				turnHolderCount++;
+			} else {
+				otherCount++;
+			}
+		}
+		
+		return turnHolderCount > otherCount; // remis otherwise
+	}
+
+	public Animation getWinAnimation(Player turnHolder) {
+		System.out.println("win animation");
+		return new PauseTransition(Duration.seconds(3.0));
+	}
+
+	public Animation getRemisAnimation() {
+		System.out.println("remis animation");
+		return new PauseTransition(Duration.seconds(3.0));
 	}
 
 	

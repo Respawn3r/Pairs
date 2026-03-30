@@ -1,6 +1,6 @@
 package game;
 
-import fruits.Fruit;
+
 import javafx.scene.paint.Color;
 
 public class Player {
@@ -11,10 +11,6 @@ public class Player {
 	public Player(Color color) {
 		this.selection = new Selection();
 		this.color = color;
-	}
-
-	public void assignFruit(Fruit fruit) {
-		//TODO
 	}
 
 	public Selection getSelection() {
