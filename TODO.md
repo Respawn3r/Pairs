@@ -31,6 +31,7 @@ Programming:
 Cursor Logic					++++
 Adjust position of field		+++
 implement grass					++
+mark card when paired			++++
 
 
 
