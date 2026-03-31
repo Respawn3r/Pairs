@@ -1,6 +1,5 @@
 package game;
 
-import fruits.Fruit;
 import javafx.animation.ParallelTransition;
 import javafx.animation.RotateTransition;
 import javafx.animation.SequentialTransition;
@@ -11,8 +10,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.PhongMaterial;
 import javafx.scene.transform.Rotate;
 import javafx.util.Duration;
-import shapes.CardEdge;
-import shapes.CardFace;
 
 public class Card extends Group {
 	
@@ -28,11 +25,10 @@ public class Card extends Group {
 	
 
 	private Match match;	
-	private Fruit fruit;
+	private Pattern fruit;
 	private boolean facingUp;
 	private CardFace frontFace;
 	private CardFace backFace;
-	private CardEdge cardEdge;
 	private ParallelTransition faceUpTransition;
 	private ParallelTransition faceUpHappyTransition;
 	private ParallelTransition faceDownTransition;
@@ -40,20 +36,19 @@ public class Card extends Group {
 	
 
 	
-	public Card(Match match, Fruit fruit) {
+	public Card(Match match, Pattern pattern) {
 		
 		this.match = match;
-		this.fruit = fruit;
+		this.fruit = pattern;
 		this.facingUp = false;
 		
-		frontFace = new CardFace(fruit);
+		frontFace = new CardFace(pattern);
 		frontFace.setTranslateZ(THICKNESS * -.5);
 		backFace = new CardFace(null);
 		backFace.setTranslateZ(THICKNESS * .5);
 		backFace.setRotationAxis(Rotate.X_AXIS);
 		backFace.setRotate(180.0);
-		cardEdge = new CardEdge();
-		this.getChildren().addAll(frontFace, backFace, cardEdge);
+		this.getChildren().addAll(frontFace, backFace);
 		
 		this.setRotationAxis(Rotate.X_AXIS);
 		this.setRotate(180.0);
@@ -148,7 +143,7 @@ public class Card extends Group {
 	}
 	
 	
-	public Fruit getFruit() {
+	public Pattern getFruit() {
 		return this.fruit;
 	}
 

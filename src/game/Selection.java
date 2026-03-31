@@ -1,7 +1,5 @@
 package game;
 
-import fruits.Fruit;
-
 public class Selection {
 
 	private Card first;
@@ -23,7 +21,7 @@ public class Selection {
 		
 	}
 
-	public Fruit evaluate() {
+	public Pattern evaluate() {
 		return first.getFruit().equals(second.getFruit()) ? 
 				first.getFruit() : null;
 	}

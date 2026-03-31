@@ -1,6 +1,5 @@
 package game;
 
-import fruits.*;
 import javafx.animation.Animation;
 import javafx.animation.PauseTransition;
 import javafx.scene.Group;
@@ -16,7 +15,7 @@ public class Field extends Group {
 	private int width;
 	private int height;
 	private int size;
-	private Fruit[] fruits;
+	private Pattern[] fruits;
 	private Card[] cards;
 	private double xOffset;
 	private double yOffset;
@@ -28,11 +27,11 @@ public class Field extends Group {
 		this.height = height;
 		size = width * height;
 		
-		fruits = new Fruit[size / 2];
+		fruits = new Pattern[size / 2];
 		cards = new Card[size];
 		
 		for (int i = 0; i < fruits.length; i++) {
-			fruits[i] = Fruit.create();
+			fruits[i] = Pattern.create();
 			cards[2 * i] = new Card(this.match, fruits[i]);
 			cards[2 * i + 1] = new Card(this.match, fruits[i]);
 		}

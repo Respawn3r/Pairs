@@ -1,6 +1,5 @@
 package game;
 
-import fruits.Fruit;
 import javafx.animation.Animation;
 import javafx.animation.PauseTransition;
 import javafx.scene.paint.Color;
@@ -14,8 +13,8 @@ public class Match extends Foreground {
 	// BUG!!! When u tilt, the animation (applied to child) moves all other children.
 	// Copilot said it has to do with recalculated pivot point.
 	// Try wrapping the animation group in another parent. Apply tilt to wrapper only.
-	private static final int DEFAULT_FIELD_WIDTH = 3;
-	private static final int DEFAULT_FIELD_HEIGHT = 2;
+	private static final int DEFAULT_FIELD_WIDTH = 6;
+	private static final int DEFAULT_FIELD_HEIGHT = 4;
 	private static final double WAIT_BEFORE_FACE_DOWN = 1.5;
 	
 	
@@ -58,7 +57,7 @@ public class Match extends Foreground {
 		}
 		
 		if (selectionCompleted) {
-			Fruit pairedFruit = turnHolder.getSelection().evaluate();
+			Pattern pairedFruit = turnHolder.getSelection().evaluate();
 			
 			if (pairedFruit == null) {
 				card.faceUp();
