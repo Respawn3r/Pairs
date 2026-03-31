@@ -7,13 +7,13 @@
 
 Art:
 
-Normal Maps / Bump Maps				++
-~~Visual Concept for the whole game		+++
-Prototype Assets				++++~~
+~~Normal Maps / Bump Maps				++~~
+~~Visual Concept for the whole game		+++~~
+~~Prototype Assets				++++~~
 Adjust Animations				++
 Prototype Cursor Assets				++++
-
-Diffuse Maps / Spec Maps			+++
+~~Diffuse Maps / Spec Maps			+++~~
+grass assets					+++
 
 
 
@@ -25,10 +25,12 @@ Design:
 
 Programming:
 
-~~Win Condition					+++++
-Check Pair					+++++
-Scene Changes					+++++~~
+~~Win Condition					+++++~~
+~~Check Pair					+++++~~
+~~Scene Changes					+++++~~
 Cursor Logic					++++
+Adjust position of field		+++
+implement grass					++
 
 
 
