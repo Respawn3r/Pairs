@@ -7,7 +7,6 @@ import javafx.animation.TranslateTransition;
 import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.paint.PhongMaterial;
 import javafx.scene.transform.Rotate;
 import javafx.util.Duration;
 
@@ -22,6 +21,7 @@ public class Card extends Group {
 	private static final double HAPPY_TURN_HEIGHT = 5.0;
 	private static final int HAPPY_REVS = 1;
 	private static final double HAPPY_FACE_UP_DURATION = 1.5;
+	private static final double MARKS_DISTANCE = -.5;
 	
 
 	private Match match;	
@@ -136,9 +136,9 @@ public class Card extends Group {
 
 
 	public void assign(Player player) {
-		// TODO: replace this with the zig-zag frame thing.
-		this.assignment = player;
-		this.frontFace.setMaterial(new PhongMaterial(player.getColor()));
+		Marks marks = new Marks(player.getName());
+		this.getChildren().add(marks);
+		marks.setTranslateZ(MARKS_DISTANCE);
 		return;
 	}
 	

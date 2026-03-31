@@ -2,7 +2,6 @@ package game;
 
 import javafx.animation.Animation;
 import javafx.animation.PauseTransition;
-import javafx.scene.paint.Color;
 import javafx.scene.transform.Rotate;
 import javafx.util.Duration;
 
@@ -29,8 +28,8 @@ public class Match extends Foreground {
 		
 		super(game);
 		
-		this.firstPlayer = new Player(Color.BLUE);
-		this.secondPlayer = new Player(Color.ORANGE);
+		this.firstPlayer = new Player("blue");
+		this.secondPlayer = new Player("orange");
 		this.turnHolder = firstPlayer;
 		this.locked = false;
 		

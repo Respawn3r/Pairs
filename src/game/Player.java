@@ -1,23 +1,22 @@
 package game;
 
 
-import javafx.scene.paint.Color;
 
 public class Player {
 
 	private Selection selection;
-	private Color color;
+	private String name;
 	
-	public Player(Color color) {
+	public Player(String name) {
 		this.selection = new Selection();
-		this.color = color;
+		this.name = name;
 	}
 
 	public Selection getSelection() {
 		return this.selection;
 	}
 
-	public Color getColor() {
-		return this.color;
+	public String getName() {
+		return this.name;
 	}
 }

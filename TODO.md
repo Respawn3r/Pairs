@@ -14,6 +14,7 @@ Adjust Animations				++
 Prototype Cursor Assets				++++
 ~~Diffuse Maps / Spec Maps			+++~~
 grass assets					+++
+lighting						++
 
 
 
@@ -31,7 +32,7 @@ Programming:
 Cursor Logic					++++
 Adjust position of field		+++
 implement grass					++
-mark card when paired			++++
+~~mark card when paired			++++~~
 
 
 
