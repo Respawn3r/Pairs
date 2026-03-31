@@ -1,7 +1,6 @@
 package game;
 
 import javafx.scene.image.Image;
-import javafx.scene.paint.PhongMaterial;
 
 public class Pattern {
 	
