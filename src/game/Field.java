@@ -1,9 +1,8 @@
 package game;
 
 import javafx.animation.Animation;
-import javafx.animation.PauseTransition;
+import javafx.animation.ParallelTransition;
 import javafx.scene.Group;
-import javafx.util.Duration;
 
 public class Field extends Group {
 	
@@ -15,7 +14,7 @@ public class Field extends Group {
 	private int width;
 	private int height;
 	private int size;
-	private Pattern[] fruits;
+	private Pattern[] motives;
 	private Card[] cards;
 	private double xOffset;
 	private double yOffset;
@@ -27,13 +26,13 @@ public class Field extends Group {
 		this.height = height;
 		size = width * height;
 		
-		fruits = new Pattern[size / 2];
+		motives = new Pattern[size / 2];
 		cards = new Card[size];
 		
-		for (int i = 0; i < fruits.length; i++) {
-			fruits[i] = Pattern.create();
-			cards[2 * i] = new Card(this.match, fruits[i]);
-			cards[2 * i + 1] = new Card(this.match, fruits[i]);
+		for (int i = 0; i < motives.length; i++) {
+			motives[i] = Pattern.create();
+			cards[2 * i] = new Card(this.match, motives[i]);
+			cards[2 * i + 1] = new Card(this.match, motives[i]);
 		}
 		
 		for (int i = 0; i < TIMES_SHUFFLE; i++) {
@@ -102,13 +101,29 @@ public class Field extends Group {
 	}
 
 	public Animation getWinAnimation(Player turnHolder) {
-		System.out.println("win animation");
-		return new PauseTransition(Duration.seconds(3.0));
+		
+		ParallelTransition winAnim = new ParallelTransition(this);
+		winAnim.setCycleCount(2);
+		
+		for (Card card : cards) {
+			if (card.getAssignment() == turnHolder) {
+				winAnim.getChildren().add(card.getWinAnim());
+			}
+		}
+		
+		return winAnim;
 	}
 
 	public Animation getRemisAnimation() {
-		System.out.println("remis animation");
-		return new PauseTransition(Duration.seconds(3.0));
+		
+		ParallelTransition remisAnim = new ParallelTransition(this);
+		remisAnim.setCycleCount(1);
+		
+		for (Card card : cards) {
+			remisAnim.getChildren().add(card.getRemisAnim());
+		}
+		
+		return remisAnim;
 	}
 
 	

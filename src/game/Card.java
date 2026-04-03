@@ -1,5 +1,6 @@
 package game;
 
+import javafx.animation.Animation;
 import javafx.animation.ParallelTransition;
 import javafx.animation.RotateTransition;
 import javafx.animation.SequentialTransition;
@@ -136,6 +137,7 @@ public class Card extends Group {
 
 
 	public void assign(Player player) {
+		this.assignment = player;
 		Mark mark = player.generateMark();
 		this.getChildren().add(mark);
 		mark.setTranslateZ(MARKS_DISTANCE);
@@ -155,5 +157,48 @@ public class Card extends Group {
 
 	public Player getAssignment() {
 		return this.assignment;
+	}
+
+
+	public Animation getWinAnim() {
+		
+		ParallelTransition winAnim = new ParallelTransition(this);
+		
+		RotateTransition rot = 
+				new RotateTransition(Duration.seconds(.5f), this);
+		rot.setAxis(Rotate.Z_AXIS);
+		rot.setByAngle(20.0f);
+		rot.setAutoReverse(true);
+		
+		TranslateTransition trans = 
+				new TranslateTransition(Duration.seconds(.75f), this);
+		trans.setByZ(-3.0);
+		trans.setAutoReverse(true);
+		
+		winAnim.getChildren().addAll(rot, trans);
+		
+		return winAnim;
+		
+	}
+
+
+	public Animation getRemisAnim() {
+		
+		ParallelTransition remisAnim = new ParallelTransition(this);
+		
+		RotateTransition rot = 
+				new RotateTransition(Duration.seconds(1.5f), this);
+		rot.setAxis(Rotate.Z_AXIS);
+		rot.setByAngle(10.0f);
+		rot.setAutoReverse(false);
+		
+		TranslateTransition trans = 
+				new TranslateTransition(Duration.seconds(.75f), this);
+		trans.setByZ(-1.5);
+		trans.setAutoReverse(false);
+		
+		remisAnim.getChildren().addAll(rot, trans);
+		
+		return remisAnim;
 	}
 }

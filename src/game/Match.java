@@ -12,8 +12,8 @@ public class Match extends Foreground {
 	// BUG!!! When u tilt, the animation (applied to child) moves all other children.
 	// Copilot said it has to do with recalculated pivot point.
 	// Try wrapping the animation group in another parent. Apply tilt to wrapper only.
-	private static final int DEFAULT_FIELD_WIDTH = 6;
-	private static final int DEFAULT_FIELD_HEIGHT = 4;
+	private static final int DEFAULT_FIELD_WIDTH = 4;
+	private static final int DEFAULT_FIELD_HEIGHT = 2;
 	private static final double WAIT_BEFORE_FACE_DOWN = 1.5;
 	
 	
@@ -59,43 +59,64 @@ public class Match extends Foreground {
 			Pattern pairedFruit = turnHolder.getSelection().evaluate();
 			
 			if (pairedFruit == null) {
+				
 				card.faceUp();
+				
 				PauseTransition pause = new PauseTransition(
 						Duration.seconds(WAIT_BEFORE_FACE_DOWN));
 				pause.setOnFinished(_ -> {
+					
 					turnHolder.getSelection().faceDown();
 					turnHolder.getSelection().reset();
 					this.swapTurnHolder();
 					locked = false;
+					
 				});
+				
 				pause.play();
 				
 			} else {
+				
 				card.faceUpHappy();
+				
 				PauseTransition pause = new PauseTransition(
 						Duration.seconds(WAIT_BEFORE_FACE_DOWN));
 				pause.setOnFinished(_ -> {
+					
 					turnHolder.getSelection().assign(turnHolder);
 					turnHolder.getSelection().reset();
+					
 					if (field.isAllFaceUp()) {
+						
 						if (field.isWinner(turnHolder)) {
+							
 							Animation anim = field.getWinAnimation(turnHolder);
 							anim.setOnFinished(_ -> {
 								game.reportEnd();
 							});
+							
 							anim.play();
+							
 						} else {
+							
 							Animation anim = field.getRemisAnimation();
 							anim.setOnFinished(_ -> {
 								game.reportEnd();
 							});
+
 							anim.play();
+							
 						}
 					}
+					
 					locked = false;
+					
 				});
+				
 				pause.play();
+				
 			}
+			
 		}
 		
 	}
