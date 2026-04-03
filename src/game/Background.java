@@ -1,5 +1,8 @@
 package game;
 
+import javafx.geometry.Point3D;
+import javafx.scene.AmbientLight;
+import javafx.scene.DirectionalLight;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
 
@@ -14,6 +17,8 @@ public class Background extends Group {
 	private static final float SHAKE_PITCH = 10.0f;
 	private static final float DEFAULT_YAW = 45.0f;
 	private static final float SHAKE_YAW = 10.0f;
+	private static final Color SUN_COLOR = Color.WHITE;
+	
 	
 	
 	public Background() {
@@ -31,6 +36,12 @@ public class Background extends Group {
 				
 			}
 		}
+		
+		DirectionalLight sun = new DirectionalLight(SUN_COLOR);
+		sun.setDirection(new Point3D(0.0f, 1.0f, 3.0f));
+		this.getChildren().add(sun);
+		AmbientLight ambient = new AmbientLight(SUN_COLOR);
+		this.getChildren().add(ambient);
 		
 	}
 	

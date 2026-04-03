@@ -14,9 +14,10 @@ win animations					++
 ~~Prototype Cursor Assets				++++~~
 ~~Diffuse Maps / Spec Maps			+++~~
 grass assets					+++
-lighting						+++
+~~lighting						+++~~
 nicer card assets				++
-nicer cursor assets				++ 
+nicer cursor assets				++
+adjust specular maps			++
 
 
 
