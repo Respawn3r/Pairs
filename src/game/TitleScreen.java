@@ -1,28 +1,29 @@
 package game;
 
 import javafx.animation.PauseTransition;
-import javafx.scene.ImageCursor;
-import javafx.scene.shape.Box;
 import javafx.util.Duration;
 
 public class TitleScreen extends Foreground {
+
+	private static final double TITLE_DISTANCE = 10.0;
+	private static final double TITLE_TIME = 2.0;
 
 	public TitleScreen(Game game) {
 		
 		super(game);
 		
-		Box box = new Box();
-		this.getChildren().add(box);
-		box.setTranslateZ(10);
+		TitleMeshView titleMeshView = new TitleMeshView();
+		this.getChildren().add(titleMeshView);
+		titleMeshView.setTranslateZ(TITLE_DISTANCE);
 		
 	}
 
 	@Override
 	public void play() {
 		
-		this.getScene().setCursor(new ImageCursor()); // image cursor for title screen
+		this.getScene().setCursor(null); // image cursor for title screen
 		
-		PauseTransition p = new PauseTransition(Duration.seconds(1.0));
+		PauseTransition p = new PauseTransition(Duration.seconds(TITLE_TIME));
 		p.setOnFinished(_ -> {game.reportEnd();});
 		p.play();
 		
