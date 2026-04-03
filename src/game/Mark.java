@@ -6,9 +6,9 @@ import javafx.scene.shape.MeshView;
 import javafx.scene.shape.TriangleMesh;
 import javafx.scene.shape.VertexFormat;
 
-public class Marks extends MeshView {
+public class Mark extends MeshView {
 	
-	public Marks(String name) {
+	public Mark(String name) {
 		
 		super();
 		

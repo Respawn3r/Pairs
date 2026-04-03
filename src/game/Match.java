@@ -65,8 +65,7 @@ public class Match extends Foreground {
 				pause.setOnFinished(_ -> {
 					turnHolder.getSelection().faceDown();
 					turnHolder.getSelection().reset();
-					turnHolder = (turnHolder == firstPlayer) ? 
-							secondPlayer : firstPlayer;
+					this.swapTurnHolder();
 					locked = false;
 				});
 				pause.play();
@@ -101,9 +100,19 @@ public class Match extends Foreground {
 		
 	}
 	
+	private void swapTurnHolder() {
+
+		turnHolder = (turnHolder == firstPlayer) ? 
+				secondPlayer : firstPlayer;
+		this.getScene().setCursor(turnHolder.getCursor());
+		
+	}
+	
 
 	@Override
 	public void play() {
+		
+		this.getScene().setCursor(turnHolder.getCursor()); // image cursor for title screen
 		
 		return;
 	}

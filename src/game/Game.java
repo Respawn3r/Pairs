@@ -79,13 +79,6 @@ public class Game extends Application {
 		}
 		
 	}
-
-	
-	public PerspectiveCamera getCam() {
-		
-		return (PerspectiveCamera) this.scene.getCamera();
-		
-	}
 	
 	
 	@Override

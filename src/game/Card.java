@@ -136,9 +136,9 @@ public class Card extends Group {
 
 
 	public void assign(Player player) {
-		Marks marks = new Marks(player.getName());
-		this.getChildren().add(marks);
-		marks.setTranslateZ(MARKS_DISTANCE);
+		Mark mark = player.generateMark();
+		this.getChildren().add(mark);
+		mark.setTranslateZ(MARKS_DISTANCE);
 		return;
 	}
 	
