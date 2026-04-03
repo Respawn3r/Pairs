@@ -13,11 +13,12 @@ Art:
 win animations					+++
 ~~Prototype Cursor Assets				++++~~
 ~~Diffuse Maps / Spec Maps			+++~~
-grass assets					++
+~~grass assets					++~~
 ~~lighting						+++~~
-nicer card assets				++
-nicer cursor assets				++
+~~nicer card assets				++~~
+~~nicer cursor assets				++~~
 adjust specular maps			++
+title image						+++
 
 
 
@@ -34,7 +35,7 @@ Programming:
 ~~Scene Changes					+++++~~
 ~~Cursor Logic					++++~~
 ~~Adjust position of field		+++~~
-implement grass					++
+~~implement grass					++~~
 implement win animation logic	+++
 ~~mark card when paired			++++~~
 refactor/increase readablity	+
