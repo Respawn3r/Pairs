@@ -19,16 +19,16 @@ public class Grass extends MeshView {
 		TriangleMesh mesh = new TriangleMesh(VertexFormat.POINT_TEXCOORD);
 		
 		mesh.getPoints().addAll(
-				-3.0f, -1.0f, 0.0f, //0
-				-3.0f, 1.0f, 0.0f, //1
-				3.0f, 1.0f, 0.0f, //2
-				3.0f, -1.0f, 0.0f //3
-				); //width 6,height 2
+				-4.0f, -1.0f, 0.0f, //0
+				-4.0f, 1.0f, 0.0f, //1
+				4.0f, 1.0f, 0.0f, //2
+				4.0f, -1.0f, 0.0f //3
+				); //width 8,height 2
 		
 		mesh.getTexCoords().addAll(
 				0.0f, 0.0f, //left top
-				0.0f, 2.0f / 6.0f, //left bottom
-				1.0f, 2.0f / 6.0f, //right bottom
+				0.0f, 2.0f / 8.0f, //left bottom
+				1.0f, 2.0f / 8.0f, //right bottom
 				1.0f, 0.0f // right top
 				);
 		
@@ -39,20 +39,21 @@ public class Grass extends MeshView {
 		
 		super.setMesh(mesh);
 		
-		//FIRST CREATE THOSE MAPS!
-		/*PhongMaterial mat = new PhongMaterial();
-		Image diffuse = new Image("/textures/grass_diffuse.png");
+		PhongMaterial mat = new PhongMaterial();
+		Image diffuse = new Image("/textures/grass.png");
 		mat.setDiffuseMap(diffuse);
-		Image specular = new Image("/textures/grass_specular.png");
-		mat.setSpecularMap(specular);
-		super.setMaterial(mat);*/
+		//Image specular = new Image("/textures/grass_specular.png");
+		//mat.setSpecularMap(specular);
+		super.setMaterial(mat);
 		
 		
 		this.pitch = new Rotate();
 		this.pitch.setAxis(Rotate.X_AXIS);
 		this.yaw = new Rotate();
 		this.yaw.setAxis(Rotate.Z_AXIS);
-		
+
+		this.getTransforms().add(yaw);
+		this.getTransforms().add(pitch);
 	}
 
 	public void setPitch(float pitch) {

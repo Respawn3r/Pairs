@@ -5,19 +5,22 @@ import javafx.scene.AmbientLight;
 import javafx.scene.DirectionalLight;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
+import javafx.scene.transform.Rotate;
 
 public class Background extends Group {
 
-	private static final Color COLOR = Color.GREEN;
+	private static final Color COLOR = Color.LIMEGREEN;
 	private static final float WIDTH = 60.0f;
 	private static final float HEIGHT = 40.0f;
-	private static final float GAP = 7.0f;
-	private static final float SHAKE_POS = 2.0f;
-	private static final float DEFAULT_PITCH = -45.0f;
-	private static final float SHAKE_PITCH = 10.0f;
+	private static final float GAP = 5.0f;
+	private static final float SHAKE_POS = 1.0f;
+	private static final float DEFAULT_PITCH = 90.0f;
+	private static final float SHAKE_PITCH = 5.0f;
 	private static final float DEFAULT_YAW = 45.0f;
-	private static final float SHAKE_YAW = 10.0f;
+	private static final float SHAKE_YAW = 4.0f;
 	private static final Color SUN_COLOR = Color.WHITE;
+	private static final double BACKGROUND_DISTANCE = 45.0f;
+	private static final double TILT = -50.0f;
 	
 	
 	
@@ -39,10 +42,13 @@ public class Background extends Group {
 		
 		DirectionalLight sun = new DirectionalLight(SUN_COLOR);
 		sun.setDirection(new Point3D(0.0f, 1.0f, 3.0f));
-		this.getChildren().add(sun);
+		//this.getChildren().add(sun);
 		AmbientLight ambient = new AmbientLight(SUN_COLOR);
 		this.getChildren().add(ambient);
 		
+		this.setTranslateZ(BACKGROUND_DISTANCE);
+		this.setRotationAxis(Rotate.X_AXIS);
+		this.setRotate(TILT);
 	}
 	
 	public Color getColor() {

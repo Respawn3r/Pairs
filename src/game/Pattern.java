@@ -5,8 +5,8 @@ import javafx.scene.image.Image;
 public class Pattern {
 	
 	private static final String[] NAMES = {
-			"1", "2", "3", "4", "5", "6", 
-			"7", "8", "9", "10", "11", "12"
+			"ass", "beer", "cheese", "clouds", "colon", "eye", 
+			"fish", "ladybug", "shoelaces", "street", "teeth", "zebra"
 	};
 	
 	private static int creationCount = 0;
@@ -26,7 +26,7 @@ public class Pattern {
 		
 		this.name = name;
 
-		this.diffuse = new Image("/textures/diffuse" + this.name + ".png");
+		this.diffuse = new Image("/textures/card_" + this.name + ".png");
 		
 	}
 

@@ -12,7 +12,7 @@ public class Player {
 	public Player(String name) {
 		this.selection = new Selection();
 		this.name = name;
-		this.cursor = new ImageCursor(new Image("/textures/" + name + "_cursor.png"));
+		this.cursor = new ImageCursor(new Image("/textures/cursor_" + name + ".png"));
 	}
 
 	public Selection getSelection() {

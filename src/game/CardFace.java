@@ -38,7 +38,7 @@ public class CardFace extends MeshView {
 		PhongMaterial mat = new PhongMaterial();
 		Image diffuse;
 		if (pattern == null) {
-			diffuse = new Image("/textures/diffuse_back.png");
+			diffuse = new Image("/textures/card_backside.png");
 			
 		} else {
 			diffuse = pattern.getDiffuse();
