@@ -15,10 +15,10 @@ public class Mark extends MeshView {
 		TriangleMesh mesh = new TriangleMesh(VertexFormat.POINT_TEXCOORD);
 		
 		mesh.getPoints().addAll(
-				-1.5f, -2.25f, 0.0f, //0
-				-1.5f, 2.25f, 0.0f, //1
-				1.5f, 2.25f, 0.0f, //2
-				1.5f, -2.25f, 0.0f //3
+				-1.0f, -1.5f, 0.0f, //0
+				-1.0f, 1.5f, 0.0f, //1
+				1.0f, 1.5f, 0.0f, //2
+				1.0f, -1.5f, 0.0f //3
 				); 
 		
 		mesh.getTexCoords().addAll(
@@ -36,10 +36,8 @@ public class Mark extends MeshView {
 		super.setMesh(mesh);
 		
 		PhongMaterial mat = new PhongMaterial();
-		Image diffuse = new Image("/textures/" + name + "_marks_diffuse.png");
+		Image diffuse = new Image("/textures/mark_" + name + ".png");
 		mat.setDiffuseMap(diffuse);
-		Image specular = new Image("/textures/" + name + "_marks_specular.png");
-		mat.setSpecularMap(specular);
 		
 		super.setMaterial(mat);
 		

@@ -12,8 +12,8 @@ public class Match extends Foreground {
 	// BUG!!! When u tilt, the animation (applied to child) moves all other children.
 	// Copilot said it has to do with recalculated pivot point.
 	// Try wrapping the animation group in another parent. Apply tilt to wrapper only.
-	private static final int DEFAULT_FIELD_WIDTH = 4;
-	private static final int DEFAULT_FIELD_HEIGHT = 2;
+	private static final int DEFAULT_FIELD_WIDTH = 6;
+	private static final int DEFAULT_FIELD_HEIGHT = 4;
 	private static final double WAIT_BEFORE_FACE_DOWN = 1.5;
 	
 	
