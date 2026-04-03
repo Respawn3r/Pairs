@@ -14,6 +14,7 @@ public class Game extends Application {
 	private static final double UPPER_SPACING = .05;
 	private static final double RIGHT_SPACING = .3;
 	private static final double BOTTOM_SPACING = .3;
+	private static final boolean MAXIMIZED = false;
 	
 	private enum Phase {
 		TITLE, MATCH
@@ -39,6 +40,7 @@ public class Game extends Application {
 				* (1 - LEFT_SPACING - RIGHT_SPACING));
 		this.stage.setHeight(Screen.getPrimary().getVisualBounds().getHeight()
 				* (1 - UPPER_SPACING - BOTTOM_SPACING));
+		this.stage.setMaximized(MAXIMIZED);
 
 		
 		this.background = new Background();

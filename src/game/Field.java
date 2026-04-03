@@ -42,12 +42,12 @@ public class Field extends Group {
 		
 		this.getChildren().addAll(cards);
 		
-		this.xOffset = xOffset();
-		this.yOffset = zOffset();
+		this.xOffset = offset(true);
+		this.yOffset = offset(false);
 		
 		for (int i = 0; i < cards.length; i++) {
-			cards[i].setTranslateX(this.iToRealX(i));
-			cards[i].setTranslateY(this.iToRealY(i));
+			cards[i].setTranslateX(this.iToReal(i, true));
+			cards[i].setTranslateY(this.iToReal(i, false));
 		}
 		
 	}
@@ -62,30 +62,21 @@ public class Field extends Group {
 		
 	}
 	
-	private double iToRealX(int i) {
-		int x = i % width;
+	private double iToReal(int i, boolean x) {
+		int coord = x ? i % width : i / width;
+		double offset = x ? xOffset : yOffset;
+		double length = x ? Card.SHORT_SIDE : Card.LONG_SIDE;
 		
-		double xCoordinate = x * (Card.SHORT_SIDE + GAP);
-		
-		return xCoordinate + xOffset;
-	}
-
-	private double iToRealY(int i) {
-		int y = i / width;
-		
-		double yCoordinate = y * (Card.LONG_SIDE + GAP) * -1;
-		
-		return yCoordinate + yOffset;
+		return offset + coord * (length + GAP);
 	}
 	
-	private double xOffset() {
-		double totalRealWidth = width * Card.SHORT_SIDE + (width - 1) * GAP;
-		return totalRealWidth / 2 * -1;
-	}
-	
-	private double zOffset() {
-		double totalRealHeight = height * Card.LONG_SIDE + (height - 1) * GAP;
-		return totalRealHeight / 2;
+	private double offset(boolean x) {
+		int count = x ? width : height;
+		double length = x ? Card.SHORT_SIDE : Card.LONG_SIDE;
+		
+		double minMaxSpan = ((double)(count - 1)) 
+				* (length + GAP);
+		return minMaxSpan / 2.0f * -1.0f;
 	}
 
 	public boolean isAllFaceUp() {

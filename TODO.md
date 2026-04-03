@@ -10,10 +10,10 @@ Art:
 ~~Normal Maps / Bump Maps				++~~
 ~~Visual Concept for the whole game		+++~~
 ~~Prototype Assets				++++~~
-win animations					++
+win animations					+++
 ~~Prototype Cursor Assets				++++~~
 ~~Diffuse Maps / Spec Maps			+++~~
-grass assets					+++
+grass assets					++
 ~~lighting						+++~~
 nicer card assets				++
 nicer cursor assets				++
@@ -33,9 +33,11 @@ Programming:
 ~~Check Pair					+++++~~
 ~~Scene Changes					+++++~~
 ~~Cursor Logic					++++~~
-Adjust position of field		+++
+~~Adjust position of field		+++~~
 implement grass					++
+implement win animation logic	+++
 ~~mark card when paired			++++~~
+refactor/increase readablity	+
 
 
 
