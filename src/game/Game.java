@@ -26,6 +26,11 @@ public class Game extends Application {
 	private Group foregroundRoot;
 	private Phase phase;
 	
+	
+	public static void main(String[] args) {
+		launch(args);
+	}
+	
 	@Override
 	public void start(Stage stage) throws Exception {
 	

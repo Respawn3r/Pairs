@@ -42,7 +42,7 @@ public class Background extends Group {
 		
 		DirectionalLight sun = new DirectionalLight(SUN_COLOR);
 		sun.setDirection(new Point3D(0.0f, 1.0f, 3.0f));
-		//this.getChildren().add(sun);
+		// this.getChildren().add(sun);
 		AmbientLight ambient = new AmbientLight(SUN_COLOR);
 		this.getChildren().add(ambient);
 		

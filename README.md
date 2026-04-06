@@ -1,9 +1,18 @@
-# FruitPairs
-A game of Pairs made with JavaFX. 
+# PAIRS
 
-You're in front of a field of cards. They're all facing down. 
-Click on two cards to turn them around. Now you can see what they depict: fruits. 
-Try to memorize which fruits you've seen, as now the cards will be made facing down again. 
-The goal is to click on cards that depict the same fruit, aka find pairs. 
-If you found a pair, you can continue. If not, it's your opponents turn.
-Good luck.
+
+
+Hello. I created this little game in order to proof that I actually can program videogames. I know it's not perfect. The code isn't super clean and I'm sure I could have organized it better. However it's done and it works. 
+
+
+
+I used JavaFX and that's it. As Development Environment I used Eclipse.
+
+
+
+I did everything myself: the code and the assets. I didn't use any AI. 
+
+
+
+Have a nice day!
+
