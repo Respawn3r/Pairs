@@ -13,4 +13,3 @@ I tested three different types of motives:
 - Then I used black and white patterns, as seen in the [overall visual concept](overall_visual_concept.png). The idea was nice, as this would have given color-blind people the same chances. But it was too difficult to play the game. It turns out, that we remember objects that we can grab more easily.
 - Lastly, and this is the current version, I used objects from daily life. I made sure that they feature somehow a pattern that I can depict over all of the card, rather than a little shape in the middle of the card. If you will: It's micro-shots rather than macro-shots.
 
-To get an idea of the current version, see [preview](../preview.mp4).
